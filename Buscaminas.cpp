@@ -7,17 +7,17 @@
 
 int main()
 {
-    int height = 1;
-    int width = 1;
-    int minas = 0;
+    int height = 2;
+    int width = 2;
+    int mines = 0;
     int board[ARRAY_MAX_X][ARRAY_MAX_Y]{};
     int boardHide[ARRAY_MAX_X][ARRAY_MAX_Y]{};
-    int boardMinas[ARRAY_MAX_X][ARRAY_MAX_Y]{};
+    int boardMines[ARRAY_MAX_X][ARRAY_MAX_Y]{};
 	char charA = 'a';
     int slotX = 0;
     int slotY = 0;
     char slotYcharA = 'a';
-	int minasClose = 0;
+	int minesClose = 0;
 	bool win = true;
 	int actionLog = 1;
 
@@ -27,27 +27,27 @@ int main()
     //inicio del juego
     do
     {
-        if ((width > 10) || (width <= 0) || (height > 10) || (height <= 0))
+        if ((width > 10) || (width <= 1) || (height > 10) || (height <= 1))
         {
-            std::cout << "--Tu tablero es demasiado grande!--\n\n";
+            std::cout << "--Tu tablero no se ha podido crear! (max 10, min 2)--\n\n";
         }
-        else if (minas >= width * height)
+        else if (mines >= width * height)
         {
             std::cout << "--Demasiadas minas para el tamaño de tu tablero!--\n\n";
         }
         else
         {
-            std::cout << "--Bienvenido a Buscaminas!--\n\n";
+            std::cout << "--Bienvenido a Buscaminas! Introduce la longitud y la altura de tu tabla (max 10, min 2)--\n\n";
         }
-        std::cout << "Introduce la longitud de la tabla: (max 10, min 1)\n";
+        std::cout << "Introduce la longitud de la tabla: \n";
         std::cin >> width;
-        std::cout << "Introduce la altura de la tabla: (max 10, min 1)\n";
+        std::cout << "Introduce la altura de la tabla: \n";
         std::cin >> height;
         std::cout << "Introduce la dificultad de las minas: \n";
-        std::cin >> minas;
+        std::cin >> mines;
 
         system("cls");
-    } while ((width > 10) || (width <= 0) || (height > 10) || (height <= 0) || (minas >= width * height));
+    } while ((width > 10) || (width <= 1) || (height > 10) || (height <= 1) || (mines >= width * height));
     
     //configurar tablero
     for (size_t y = 0; y < (height + 1); y++)
@@ -68,7 +68,7 @@ int main()
     }
 
     //repartir minas
-    for (int i = 0; i < minas; i++)
+    for (int i = 0; i < mines; i++)
     {
         //usa temporalmente slot X e Y para elegir la casilla de la mina, si no esta vacio vuelve a intentar
         slotX = 1 + rand() % width;
@@ -88,7 +88,7 @@ int main()
     {
         for (size_t x = 0; x < (width + 1); x++)
         {
-			minasClose = 0;
+			minesClose = 0;
             //mirar casillas cercanas
             for (int SUBy = y - 1; SUBy <= y + 1; SUBy++)
             {
@@ -98,18 +98,18 @@ int main()
                     {
                         if (board[SUBx][SUBy] == 1)
                         {
-                            minasClose++;
+                            minesClose++;
                         }
                     }
                 }
             }
 
-			boardMinas[x][y] = minasClose;
+			boardMines[x][y] = minesClose;
             if (board[x][y] == 1)
             {
                 continue;
             }
-            else if (minasClose >= 1)
+            else if (minesClose >= 1)
             {
                 board[x][y] = 2;
             }
@@ -122,7 +122,7 @@ int main()
         do
         {
             //dibujar tablero
-            std::cout << " __--BUSCAMINAS--__   | Minas: " << minas << " | Longitud: " << width << " | Altura: " << height << " |\n";
+            std::cout << " __--BUSCAMINAS--__   | Minas: " << mines << " | Longitud: " << width << " | Altura: " << height << " |\n";
             for (size_t y = 0; y < (height + 1); y++)
             {
                 std::cout << "\n";
@@ -163,7 +163,7 @@ int main()
                         }
                         else if (board[x][y] == 2)
                         {
-                            std::cout << boardMinas[x][y] << " ";
+                            std::cout << boardMines[x][y] << " ";
                         }
                     }
                 }
@@ -173,8 +173,9 @@ int main()
             //esto es para reactivar lo de ganar
             win = true;
 
+			//narrador
             std::cout << "\n\n";
-            if ((slotX > width) || (slotY > height))
+            if ((slotX > width) || (slotY > height) || (slotX < 1) || (slotY < 1))
             {
                 std::cout << "-- La casilla que has introducido no es valida. --\n";
             }
@@ -190,8 +191,9 @@ int main()
             else if (actionLog == 2)
             {
                 std::cout << "-- Has cavado la casilla " << slotX - 1 << slotYcharA;
-                std::cout << " y parece que hay " << boardMinas[slotX][slotY] << " mina(s) cerca! --\n";
+                std::cout << " y parece que hay " << boardMines[slotX][slotY] << " mina(s) cerca! --\n";
             }
+            //input casilla
             std::cout << "En que COLUMNA quieres cavar? (Numero):\n";
             std::cin >> slotX;
             std::cout << "En que FILA quieres cavar? (Letra):\n";
@@ -201,7 +203,7 @@ int main()
             slotX = slotX + 1;
 
             system("cls");
-        } while ((slotX > width) || (slotY > height) || (slotX < 0) || (slotY < 0));
+        } while ((slotX > width) || (slotY > height) || (slotX < 1) || (slotY < 1));
         
 
 
@@ -335,7 +337,7 @@ int main()
     }
 
 
-    std::cout << " __--BUSCAMINAS--__   | Minas: " << minas << " | Longitud: " << width << " | Altura: " << height << " |\n";
+    std::cout << " __--BUSCAMINAS--__   | Minas: " << mines << " | Longitud: " << width << " | Altura: " << height << " |\n";
     for (size_t y = 0; y < (height + 1); y++)
     {
         std::cout << "\n";
@@ -384,7 +386,7 @@ int main()
                 }
                 else if (board[x][y] == 2)
                 {
-                    std::cout << boardMinas[x][y] << " ";
+                    std::cout << boardMines[x][y] << " ";
                 }
             }
         }
