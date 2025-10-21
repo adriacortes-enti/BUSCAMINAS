@@ -1,0 +1,52 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\AdriaCortesLon\\Documents\\PROGRAMACION\\Buscaminas\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2F1CAA0A-0C0C-4632-9384-EE75DDE2FCAD}|Buscaminas.vcxproj|C:\\Users\\AdriaCortesLon\\Documents\\PROGRAMACION\\Buscaminas\\Buscaminas.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2F1CAA0A-0C0C-4632-9384-EE75DDE2FCAD}|Buscaminas.vcxproj|solutionrelative:Buscaminas.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\AdriaCortesLon\\Documents\\PROGRAMACION\\Dungeon\\Dungeon.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Buscaminas.cpp",
+              "DocumentMoniker": "C:\\Users\\AdriaCortesLon\\Documents\\PROGRAMACION\\Buscaminas\\Buscaminas.cpp",
+              "RelativeDocumentMoniker": "Buscaminas.cpp",
+              "ToolTip": "C:\\Users\\AdriaCortesLon\\Documents\\PROGRAMACION\\Buscaminas\\Buscaminas.cpp",
+              "RelativeToolTip": "Buscaminas.cpp",
+              "ViewState": "AgIAACgAAAAAAAAAAAAswLEAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-10-07T10:22:17.548Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Dungeon.cpp",
+              "DocumentMoniker": "C:\\Users\\AdriaCortesLon\\Documents\\PROGRAMACION\\Dungeon\\Dungeon.cpp",
+              "RelativeDocumentMoniker": "..\\Dungeon\\Dungeon.cpp",
+              "ToolTip": "C:\\Users\\AdriaCortesLon\\Documents\\PROGRAMACION\\Dungeon\\Dungeon.cpp",
+              "RelativeToolTip": "..\\Dungeon\\Dungeon.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-10-14T10:04:25.759Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

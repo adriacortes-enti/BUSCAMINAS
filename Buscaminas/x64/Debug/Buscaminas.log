@@ -1,0 +1,5 @@
+﻿  Buscaminas.cpp
+C:\Users\AdriaCortesLon\Documents\PROGRAMACION\Buscaminas\Buscaminas.cpp(24,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\AdriaCortesLon\Documents\PROGRAMACION\Buscaminas\Buscaminas.cpp(92,27): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\AdriaCortesLon\Documents\PROGRAMACION\Buscaminas\Buscaminas.cpp(94,31): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Buscaminas.vcxproj -> C:\Users\AdriaCortesLon\Documents\PROGRAMACION\Buscaminas\x64\Debug\Buscaminas.exe
