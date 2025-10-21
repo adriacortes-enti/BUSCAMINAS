@@ -19,6 +19,7 @@ int main()
     char slotYcharA = 'a';
 	int minasClose = 0;
 	bool win = true;
+	int actionLog = 1;
 
     //generador de seeds
     srand(time(NULL));
@@ -173,15 +174,31 @@ int main()
             win = true;
 
             std::cout << "\n\n";
-            std::cout << "-- Ingresa un valor por Columna y fila! --\n";
+            if ((slotX > width) || (slotY > height))
+            {
+                std::cout << "-- La casilla que has introducido no es valida. --\n";
+            }
+			else if (actionLog == 0)
+            {
+                std::cout << "-- Has cavado la casilla " << slotX - 1 << slotYcharA;
+                std::cout << " y has encontrado un agujero! --\n";
+            }
+            else if (actionLog == 1)
+            {
+                std::cout << "-- Ingresa un valor por Columna y fila! --\n";
+            }
+            else if (actionLog == 2)
+            {
+                std::cout << "-- Has cavado la casilla " << slotX - 1 << slotYcharA;
+                std::cout << " y parece que hay " << boardMinas[slotX][slotY] << " mina(s) cerca! --\n";
+            }
             std::cout << "En que COLUMNA quieres cavar? (Numero):\n";
             std::cin >> slotX;
             std::cout << "En que FILA quieres cavar? (Letra):\n";
             std::cin >> slotYcharA;
 
             slotY = slotYcharA - 'a' + 1;
-            //especificar INT para evitar bugs
-            slotX = (int)slotX - slotX + 1;
+            slotX = slotX + 1;
 
             system("cls");
         } while ((slotX > width) || (slotY > height) || (slotX < 0) || (slotY < 0));
@@ -193,6 +210,8 @@ int main()
         {
         case 0:
             //exponer las casillas cercanas
+			actionLog = 0;
+
             if (boardHide[slotX][slotY] == 1)
             {
                 for (int y = slotY - 1; y <= slotY + 1; y++)
@@ -213,11 +232,13 @@ int main()
             break;
         case 1:
             //PISAR EN MINA
+			actionLog = 1;
             boardHide[slotX][slotY] = 0;
             win = false;
             break;
         case 2:
             //cavar una casilla de numero
+			actionLog = 2;
             boardHide[slotX][slotY] = 0;
             break;
         default:
